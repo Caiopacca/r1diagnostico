@@ -24,20 +24,11 @@ export const step1Questions = [
     type: 'text',
   },
   {
-    id: 'revenueGoal',
-    label: 'Qual é a meta de faturamento?',
-    placeholder: 'R$ 120.000,00',
-    type: 'text',
-  },
-  {
     id: 'averageTicket',
     label: 'Qual o ticket médio?',
     placeholder: 'R$ 800,00',
     type: 'text',
   },
-];
-
-export const step2Questions = [
   {
     id: 'clientSource',
     label: 'De onde vem a maioria dos clientes?',
@@ -52,16 +43,19 @@ export const step2Questions = [
     type: 'textarea',
   },
   {
+    id: 'pastMarketingExperience',
+    label: 'Qual foi sua experiência anterior com marketing?',
+    placeholder: 'Já contratamos uma agência no passado, mas não deu certo.',
+    type: 'textarea',
+  },
+];
+
+export const step2Questions = [
+   {
     id: 'marketingMotivation',
     label: 'O que te motivou a buscar ajuda com marketing?',
     placeholder:
       'Chegamos num platô, o crescimento estagnou e vemos concorrentes crescendo muito no digital. Queremos profissionalizar nossa presença online.',
-    type: 'textarea',
-  },
-  {
-    id: 'pastMarketingExperience',
-    label: 'Qual foi sua experiência anterior com marketing?',
-    placeholder: 'Já contratamos uma agência no passado, mas não deu certo.',
     type: 'textarea',
   },
   {
@@ -88,11 +82,11 @@ export const step2Questions = [
     placeholder: 'O faturamento vai cair e perderemos relevância para clínicas mais novas e agressivas.',
     type: 'textarea',
   },
-  {
-    id: 'personalFeeling',
-    label: 'Qual o seu sentimento pessoal em relação a esse desafio?',
-    placeholder: 'É frustrante. Sei do nosso potencial e da qualidade do nosso trabalho, mas sinto que estamos ficando invisíveis no mercado.',
-    type: 'textarea',
+    {
+    id: 'revenueGoal',
+    label: 'Qual é a meta de faturamento?',
+    placeholder: 'R$ 120.000,00',
+    type: 'text',
   },
   {
     id: 'futureVision',
@@ -100,6 +94,12 @@ export const step2Questions = [
       'Como você imagina seu negócio daqui a 6 meses com esse problema resolvido?',
     placeholder:
       'Agenda cheia de forma previsível, clínica reconhecida como referência na especialidade e segurança para investir no crescimento.',
+    type: 'textarea',
+  },
+  {
+    id: 'personalFeeling',
+    label: 'Qual o seu sentimento pessoal em relação a esse desafio?',
+    placeholder: 'É frustrante. Sei do nosso potencial e da qualidade do nosso trabalho, mas sinto que estamos ficando invisíveis no mercado.',
     type: 'textarea',
   },
   {
