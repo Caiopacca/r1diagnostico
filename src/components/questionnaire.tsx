@@ -26,8 +26,8 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { allQuestions } from '@/lib/questions';
-import { Progress } from '@/components/ui/progress';
+import { allQuestions, step1Questions, step2Questions } from '@/lib/questions';
+import { Separator } from '@/components/ui/separator';
 
 const formSchema = z.object(
   allQuestions.reduce((acc, q) => {
@@ -50,7 +50,13 @@ export function Questionnaire() {
 
   const getFullText = (data: z.infer<typeof formSchema>) => {
     let text = 'Respostas do Questionário:\n\n';
-    allQuestions.forEach(q => {
+    text += '--- 1ª Etapa ---\n\n';
+    step1Questions.forEach(q => {
+      text += `${q.label}\n`;
+      text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+    });
+    text += '--- 2ª Etapa ---\n\n';
+    step2Questions.forEach(q => {
       text += `${q.label}\n`;
       text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
     });
@@ -72,7 +78,7 @@ export function Questionnaire() {
   const handleEmail = (data: z.infer<typeof formSchema>) => {
     const textForEmail = getFullText(data);
     const subject = encodeURIComponent(
-      'Respostas do Questionário - Client Insights Pro'
+      'Respostas do Questionário - R1 DIAGNÓSTICO'
     );
     const body = encodeURIComponent(textForEmail);
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
@@ -127,35 +133,76 @@ export function Questionnaire() {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12">
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {allQuestions.map(q => (
-                  <FormField
-                    key={q.id}
-                    control={form.control}
-                    name={q.id as any}
-                    render={({ field }) => (
-                      <FormItem
-                        className={q.type === 'textarea' ? 'md:col-span-2' : ''}
-                      >
-                        <FormLabel className="text-foreground/90">{q.label}</FormLabel>
-                        <FormControl>
-                          {q.type === 'textarea' ? (
-                            <Textarea
-                              placeholder={q.placeholder}
-                              {...field}
-                              rows={3}
-                              className="bg-input border-border"
-                            />
-                          ) : (
-                            <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
-                          )}
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                ))}
+              <div className="space-y-8">
+                <div>
+                  <h2 className="text-xl font-semibold text-primary mb-6">1ª Etapa</h2>
+                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                    {step1Questions.map(q => (
+                      <FormField
+                        key={q.id}
+                        control={form.control}
+                        name={q.id as any}
+                        render={({ field }) => (
+                          <FormItem
+                            className={q.type === 'textarea' ? 'md:col-span-2' : ''}
+                          >
+                            <FormLabel className="text-foreground/90">{q.label}</FormLabel>
+                            <FormControl>
+                              {q.type === 'textarea' ? (
+                                <Textarea
+                                  placeholder={q.placeholder}
+                                  {...field}
+                                  rows={3}
+                                  className="bg-input border-border"
+                                />
+                              ) : (
+                                <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
+                              )}
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <Separator className="my-12" />
+
+                <div>
+                   <h2 className="text-xl font-semibold text-primary mb-6">2ª Etapa</h2>
+                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                    {step2Questions.map(q => (
+                      <FormField
+                        key={q.id}
+                        control={form.control}
+                        name={q.id as any}
+                        render={({ field }) => (
+                          <FormItem
+                            className={q.type === 'textarea' ? 'md:col-span-2' : ''}
+                          >
+                            <FormLabel className="text-foreground/90">{q.label}</FormLabel>
+                            <FormControl>
+                              {q.type === 'textarea' ? (
+                                <Textarea
+                                  placeholder={q.placeholder}
+                                  {...field}
+                                  rows={3}
+                                  className="bg-input border-border"
+                                />
+                              ) : (
+                                <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
+                              )}
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
+
               <div className="flex flex-col items-center justify-end gap-4 border-t border-border pt-6 sm:flex-row">
                  <div className="flex gap-4">
                       <Button
