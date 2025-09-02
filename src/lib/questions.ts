@@ -9,7 +9,7 @@ export const step1Questions = [
   },
   {
     id: 'segment',
-    label: 'Qual é o seu segmento?',
+    label: '2-Qual é o seu segmento?',
     placeholder: 'Saúde e Bem-estar',
     type: 'text',
     suggestion: 'Ver resposta do formulário'
