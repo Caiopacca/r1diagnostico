@@ -53,31 +53,31 @@ export function Questionnaire() {
     let text = 'Respostas do Questionário:\n\n';
     let questionNumber = 1;
 
-    text += '--- 📊 Cenário e Metas ---\n\n';
+    text += '--- 📊 CENÁRIO E METAS ---\n\n';
     step1Questions.forEach(q => {
       text += `${questionNumber}. ${q.label}\n`;
-      text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+      text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
       questionNumber++;
     });
 
-    text += '--- 🎯 O Desafio Atual ---\n\n';
+    text += '--- 🎯 O DESAFIO ATUAL ---\n\n';
     step2Questions.forEach(q => {
       text += `${questionNumber}. ${q.label}\n`;
-      text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+      text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
       questionNumber++;
     });
 
-    text += '--- 👁️ A Visão de Futuro ---\n\n';
+    text += '--- 👁️ A VISÃO DE FUTURO ---\n\n';
     step3Questions.forEach(q => {
       text += `${questionNumber}. ${q.label}\n`;
-      text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+      text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
       questionNumber++;
     });
 
-    text += '--- 💰 Próximos Passos e Investimento ---\n\n';
+    text += '--- 💰 PRÓXIMOS PASSOS E INVESTIMENTO ---\n\n';
     step4Questions.forEach(q => {
       text += `${questionNumber}. ${q.label}\n`;
-      text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+      text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
       questionNumber++;
     });
 
