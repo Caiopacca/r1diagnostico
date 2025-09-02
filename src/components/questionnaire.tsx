@@ -161,11 +161,11 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                              <div className="flex items-center justify-between mb-2">
+                              <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
+                                  {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
-                                {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                               </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -201,11 +201,11 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                               <div className="flex items-center justify-between mb-2">
+                               <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
+                                  {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
-                                {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                               </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -241,11 +241,11 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                               <div className="flex items-center justify-between mb-2">
+                               <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
+                                  {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
-                                {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                               </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -281,11 +281,11 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                               <div className="flex items-center justify-between mb-2">
+                               <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
+                                  {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
-                                {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                               </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -344,5 +344,3 @@ export function Questionnaire() {
     </div>
   );
 }
-
-    
