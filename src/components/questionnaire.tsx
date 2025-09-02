@@ -45,7 +45,7 @@ export function Questionnaire() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: allQuestions.reduce((acc, q) => {
-      acc[q.id] = q.placeholder || '';
+      acc[q.id] = '';
       return acc;
     }, {} as Record<string, string>),
   });
@@ -133,7 +133,6 @@ export function Questionnaire() {
                               <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
-                                  {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -174,7 +173,6 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
-                                  {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -215,7 +213,6 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
-                                  {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -256,7 +253,6 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
-                                  {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -305,3 +301,5 @@ export function Questionnaire() {
     </div>
   );
 }
+
+    
