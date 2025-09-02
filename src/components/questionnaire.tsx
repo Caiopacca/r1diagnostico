@@ -161,7 +161,7 @@ export function Questionnaire() {
                 <div>
                   <h2 className="text-xl font-semibold text-primary mb-6">📊 Cenário e Metas</h2>
                   <div className="grid grid-cols-1 gap-8">
-                    {step1Questions.map((q, index) => {
+                    {step1Questions.map((q) => {
                       questionCounter++;
                       return (
                       <FormField
@@ -199,7 +199,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">🎯 O Desafio Atual</h2>
                   <div className="grid grid-cols-1 gap-8">
-                    {step2Questions.map((q, index) => {
+                    {step2Questions.map((q) => {
                        questionCounter++;
                       return (
                       <FormField
@@ -237,7 +237,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">👁️ A Visão de Futuro</h2>
                   <div className="grid grid-cols-1 gap-8">
-                    {step3Questions.map((q, index) => {
+                    {step3Questions.map((q) => {
                        questionCounter++;
                       return (
                       <FormField
@@ -275,7 +275,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">💰 Próximos Passos e Investimento</h2>
                   <div className="grid grid-cols-1 gap-8">
-                    {step4Questions.map((q, index) => {
+                    {step4Questions.map((q) => {
                        questionCounter++;
                       return (
                       <FormField
@@ -343,5 +343,3 @@ export function Questionnaire() {
     </div>
   );
 }
-
-    
