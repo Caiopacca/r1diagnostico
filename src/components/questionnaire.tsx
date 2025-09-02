@@ -160,7 +160,7 @@ export function Questionnaire() {
               <div className="space-y-8">
                 <div>
                   <h2 className="text-xl font-semibold text-primary mb-6">📊 Cenário e Metas</h2>
-                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-8">
                     {step1Questions.map((q, index) => {
                       questionCounter++;
                       return (
@@ -169,9 +169,7 @@ export function Questionnaire() {
                         control={form.control}
                         name={q.id as any}
                         render={({ field }) => (
-                          <FormItem
-                            className={q.type === 'textarea' ? 'md:col-span-2' : ''}
-                          >
+                          <FormItem>
                              <FormLabel className="text-foreground/90 flex items-center justify-between">
                               <span>{`${questionCounter}. ${q.label}`}</span>
                               {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
@@ -200,7 +198,7 @@ export function Questionnaire() {
 
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">🎯 O Desafio Atual</h2>
-                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-8">
                     {step2Questions.map((q, index) => {
                        questionCounter++;
                       return (
@@ -209,9 +207,7 @@ export function Questionnaire() {
                         control={form.control}
                         name={q.id as any}
                         render={({ field }) => (
-                          <FormItem
-                            className={q.type === 'textarea' ? 'md:col-span-2' : ''}
-                          >
+                          <FormItem>
                              <FormLabel className="text-foreground/90 flex items-center justify-between">
                               <span>{`${questionCounter}. ${q.label}`}</span>
                               {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
@@ -240,7 +236,7 @@ export function Questionnaire() {
 
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">👁️ A Visão de Futuro</h2>
-                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-8">
                     {step3Questions.map((q, index) => {
                        questionCounter++;
                       return (
@@ -249,9 +245,7 @@ export function Questionnaire() {
                         control={form.control}
                         name={q.id as any}
                         render={({ field }) => (
-                          <FormItem
-                            className={q.type === 'textarea' ? 'md:col-span-2' : ''}
-                          >
+                          <FormItem>
                             <FormLabel className="text-foreground/90 flex items-center justify-between">
                               <span>{`${questionCounter}. ${q.label}`}</span>
                               {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
@@ -280,7 +274,7 @@ export function Questionnaire() {
 
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">💰 Próximos Passos e Investimento</h2>
-                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-8">
                     {step4Questions.map((q, index) => {
                        questionCounter++;
                       return (
@@ -289,9 +283,7 @@ export function Questionnaire() {
                         control={form.control}
                         name={q.id as any}
                         render={({ field }) => (
-                          <FormItem
-                            className={q.type === 'textarea' ? 'md:col-span-2' : ''}
-                          >
+                          <FormItem>
                             <FormLabel className="text-foreground/90 flex items-center justify-between">
                               <span>{`${questionCounter}. ${q.label}`}</span>
                               {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
