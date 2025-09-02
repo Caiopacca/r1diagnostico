@@ -161,8 +161,8 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                              <div className="flex items-center justify-between">
-                                <FormLabel className="text-foreground/90">
+                              <div className="flex items-center justify-between mb-2">
+                                <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
                                 </FormLabel>
                                 {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
@@ -201,8 +201,8 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                               <div className="flex items-center justify-between">
-                                <FormLabel className="text-foreground/90">
+                               <div className="flex items-center justify-between mb-2">
+                                <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
                                 </FormLabel>
                                 {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
@@ -241,8 +241,8 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                               <div className="flex items-center justify-between">
-                                <FormLabel className="text-foreground/90">
+                               <div className="flex items-center justify-between mb-2">
+                                <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
                                 </FormLabel>
                                 {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
@@ -281,8 +281,8 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                               <div className="flex items-center justify-between">
-                                <FormLabel className="text-foreground/90">
+                               <div className="flex items-center justify-between mb-2">
+                                <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
                                 </FormLabel>
                                 {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
@@ -344,3 +344,5 @@ export function Questionnaire() {
     </div>
   );
 }
+
+    
