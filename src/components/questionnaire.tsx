@@ -52,6 +52,8 @@ export function Questionnaire() {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    // This function is no longer called since the submit button is removed.
+    // The logic is kept in case it's needed in the future.
     setIsLoading(true);
     setFollowUpQuestions([]);
     try {
@@ -163,13 +165,13 @@ export function Questionnaire() {
                   />
                 ))}
               </div>
-              <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
-                <div className="flex gap-2">
+              <div className="flex flex-col items-center justify-start gap-4 border-t border-border pt-6 sm:flex-row">
+                <div className="flex gap-4">
                   <Button
                     type="button"
-                    variant="outline"
                     onClick={handleCopy}
                     className="w-full sm:w-auto"
+                    size="lg"
                   >
                     {isCopied ? (
                       <Check className="mr-2 h-4 w-4" />
@@ -180,32 +182,14 @@ export function Questionnaire() {
                   </Button>
                   <Button
                     type="button"
-                    variant="outline"
                     onClick={handleEmail}
                     className="w-full sm:w-auto"
+                    size="lg"
                   >
                     <Mail className="mr-2 h-4 w-4" />
                     Enviar
                   </Button>
                 </div>
-                <Button
-                  type="submit"
-                  disabled={isLoading}
-                  size="lg"
-                  className="w-full sm:w-auto"
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Gerando...
-                    </>
-                  ) : (
-                    <>
-                      <Wand2 className="mr-2 h-4 w-4" />
-                      Gerar Perguntas
-                    </>
-                  )}
-                </Button>
               </div>
             </form>
           </Form>
