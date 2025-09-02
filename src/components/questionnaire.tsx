@@ -171,7 +171,10 @@ export function Questionnaire() {
                           <FormItem
                             className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                           >
-                            <FormLabel className="text-foreground/90">{`${questionCounter}. ${q.label}`}</FormLabel>
+                             <FormLabel className="text-foreground/90 flex items-center justify-between">
+                              <span>{`${questionCounter}. ${q.label}`}</span>
+                              {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                            </FormLabel>
                             <FormControl>
                               {q.type === 'textarea' ? (
                                 <Textarea
@@ -208,7 +211,10 @@ export function Questionnaire() {
                           <FormItem
                             className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                           >
-                            <FormLabel className="text-foreground/90">{`${questionCounter}. ${q.label}`}</FormLabel>
+                             <FormLabel className="text-foreground/90 flex items-center justify-between">
+                              <span>{`${questionCounter}. ${q.label}`}</span>
+                              {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                            </FormLabel>
                             <FormControl>
                               {q.type === 'textarea' ? (
                                 <Textarea
@@ -245,7 +251,10 @@ export function Questionnaire() {
                           <FormItem
                             className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                           >
-                            <FormLabel className="text-foreground/90">{`${questionCounter}. ${q.label}`}</FormLabel>
+                            <FormLabel className="text-foreground/90 flex items-center justify-between">
+                              <span>{`${questionCounter}. ${q.label}`}</span>
+                              {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                            </FormLabel>
                             <FormControl>
                               {q.type === 'textarea' ? (
                                 <Textarea
@@ -282,7 +291,10 @@ export function Questionnaire() {
                           <FormItem
                             className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                           >
-                            <FormLabel className="text-foreground/90">{`${questionCounter}. ${q.label}`}</FormLabel>
+                            <FormLabel className="text-foreground/90 flex items-center justify-between">
+                              <span>{`${questionCounter}. ${q.label}`}</span>
+                              {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                            </FormLabel>
                             <FormControl>
                               {q.type === 'textarea' ? (
                                 <Textarea

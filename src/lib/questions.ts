@@ -5,12 +5,14 @@ export const step1Questions = [
     label: 'Nome do Cliente',
     placeholder: 'Clínica Vitalize',
     type: 'text',
+    suggestion: 'Ver resposta do formulário'
   },
   {
     id: 'segment',
     label: 'Qual é o seu segmento?',
     placeholder: 'Saúde e Bem-estar',
     type: 'text',
+    suggestion: 'Ver resposta do formulário'
   },
   {
     id: 'marketTime',
@@ -23,6 +25,7 @@ export const step1Questions = [
     label: 'Qual é o faturamento médio mensal?',
     placeholder: 'R$ 50.000,00',
     type: 'text',
+    suggestion: 'Ver resposta do formulário'
   },
    {
     id: 'revenueGoal',
@@ -63,6 +66,7 @@ export const step2Questions = [
     label: 'Qual foi sua experiência anterior com marketing?',
     placeholder: 'Já contratamos uma agência no passado, mas não deu certo.',
     type: 'textarea',
+    suggestion: 'Ver resposta do formulário'
   },
   {
     id: 'whatDidntWork',
@@ -116,6 +120,7 @@ export const step3Questions = [
     label: 'É uma prioridade resolver isso agora?',
     placeholder: 'Sim, é prioridade número um. Não podemos mais adiar.',
     type: 'text',
+    suggestion: 'Ver resposta do formulário'
   },
 ];
 
