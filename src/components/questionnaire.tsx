@@ -110,8 +110,6 @@ export function Questionnaire() {
     console.log(data);
   }
 
-  let questionCounter = 0;
-
   return (
     <div className="w-full max-w-4xl space-y-8">
       <Card className="w-full bg-card border-border">
@@ -161,9 +159,7 @@ export function Questionnaire() {
                 <div>
                   <h2 className="text-xl font-semibold text-primary mb-6">📊 Cenário e Metas</h2>
                   <div className="grid grid-cols-1 gap-8">
-                    {step1Questions.map((q) => {
-                      questionCounter++;
-                      return (
+                    {step1Questions.map((q) => (
                       <FormField
                         key={q.id}
                         control={form.control}
@@ -171,7 +167,7 @@ export function Questionnaire() {
                         render={({ field }) => (
                           <FormItem>
                              <FormLabel className="text-foreground/90 flex items-center justify-between">
-                              <span>{`${questionCounter}. ${q.label}`}</span>
+                              <span>{q.label}</span>
                               {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
                             </FormLabel>
                             <FormControl>
@@ -190,7 +186,7 @@ export function Questionnaire() {
                           </FormItem>
                         )}
                       />
-                    )})}
+                    ))}
                   </div>
                 </div>
 
@@ -199,9 +195,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">🎯 O Desafio Atual</h2>
                   <div className="grid grid-cols-1 gap-8">
-                    {step2Questions.map((q) => {
-                       questionCounter++;
-                      return (
+                    {step2Questions.map((q) => (
                       <FormField
                         key={q.id}
                         control={form.control}
@@ -209,7 +203,7 @@ export function Questionnaire() {
                         render={({ field }) => (
                           <FormItem>
                              <FormLabel className="text-foreground/90 flex items-center justify-between">
-                              <span>{`${questionCounter}. ${q.label}`}</span>
+                              <span>{q.label}</span>
                               {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
                             </FormLabel>
                             <FormControl>
@@ -228,7 +222,7 @@ export function Questionnaire() {
                           </FormItem>
                         )}
                       />
-                    )})}
+                    ))}
                   </div>
                 </div>
 
@@ -237,9 +231,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">👁️ A Visão de Futuro</h2>
                   <div className="grid grid-cols-1 gap-8">
-                    {step3Questions.map((q) => {
-                       questionCounter++;
-                      return (
+                    {step3Questions.map((q) => (
                       <FormField
                         key={q.id}
                         control={form.control}
@@ -247,7 +239,7 @@ export function Questionnaire() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-foreground/90 flex items-center justify-between">
-                              <span>{`${questionCounter}. ${q.label}`}</span>
+                              <span>{q.label}</span>
                               {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
                             </FormLabel>
                             <FormControl>
@@ -266,7 +258,7 @@ export function Questionnaire() {
                           </FormItem>
                         )}
                       />
-                    )})}
+                    ))}
                   </div>
                 </div>
 
@@ -275,9 +267,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">💰 Próximos Passos e Investimento</h2>
                   <div className="grid grid-cols-1 gap-8">
-                    {step4Questions.map((q) => {
-                       questionCounter++;
-                      return (
+                    {step4Questions.map((q) => (
                       <FormField
                         key={q.id}
                         control={form.control}
@@ -285,7 +275,7 @@ export function Questionnaire() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-foreground/90 flex items-center justify-between">
-                              <span>{`${questionCounter}. ${q.label}`}</span>
+                              <span>{q.label}</span>
                               {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
                             </FormLabel>
                             <FormControl>
@@ -304,7 +294,7 @@ export function Questionnaire() {
                           </FormItem>
                         )}
                       />
-                    )})}
+                    ))}
                   </div>
                 </div>
               </div>
