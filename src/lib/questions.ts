@@ -128,7 +128,7 @@ export const step4Questions = [
   {
     id: 'decisionMakers',
     label: 'Quem mais está envolvido na decisão?',
-    placeholder: 'A decisão final é minha e da minha esposa, que é minha sócia.',
+    placeholder: 'A decisão final é minha e da minha sócia.',
     type: 'text',
   },
   {
