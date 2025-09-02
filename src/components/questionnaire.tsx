@@ -51,34 +51,29 @@ export function Questionnaire() {
 
   const getFullText = (data: z.infer<typeof formSchema>) => {
     let text = 'Respostas do Questionário:\n\n';
-    let questionNumber = 1;
-
+    
     text += '--- 📊 CENÁRIO E METAS ---\n\n';
     step1Questions.forEach(q => {
-      text += `*${questionNumber}. ${q.label}*\n`;
+      text += `*${q.label}*\n`;
       text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
-      questionNumber++;
     });
 
     text += '--- 🎯 O DESAFIO ATUAL ---\n\n';
     step2Questions.forEach(q => {
-      text += `*${questionNumber}. ${q.label}*\n`;
+      text += `*${q.label}*\n`;
       text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
-      questionNumber++;
     });
 
     text += '--- 👁️ A VISÃO DE FUTURO ---\n\n';
     step3Questions.forEach(q => {
-      text += `*${questionNumber}. ${q.label}*\n`;
+      text += `*${q.label}*\n`;
       text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
-      questionNumber++;
     });
 
     text += '--- 💰 PRÓXIMOS PASSOS E INVESTIMENTO ---\n\n';
     step4Questions.forEach(q => {
-      text += `*${questionNumber}. ${q.label}*\n`;
+      text += `*${q.label}*\n`;
       text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
-      questionNumber++;
     });
 
     return text;
@@ -158,34 +153,36 @@ export function Questionnaire() {
               <div className="space-y-8">
                 <div>
                   <h2 className="text-xl font-semibold text-primary mb-6">📊 Cenário e Metas</h2>
-                  <div className="grid grid-cols-1 gap-8">
-                    {step1Questions.map((q) => (
-                      <FormField
-                        key={q.id}
-                        control={form.control}
-                        name={q.id as any}
-                        render={({ field }) => (
-                          <FormItem>
-                             <FormLabel className="text-foreground/90 flex items-center justify-between">
-                              <span>{q.label}</span>
-                              {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
-                            </FormLabel>
-                            <FormControl>
-                              {q.type === 'textarea' ? (
-                                <Textarea
-                                  placeholder={q.placeholder}
-                                  {...field}
-                                  rows={3}
-                                  className="bg-input border-border"
-                                />
-                              ) : (
-                                <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
-                              )}
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                  <div className="flex flex-col space-y-8">
+                    {step1Questions.map((q, index) => (
+                      <div key={q.id}>
+                        <FormField
+                          control={form.control}
+                          name={q.id as any}
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-foreground/90 flex items-center justify-between">
+                                <span>{q.label}</span>
+                                {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                              </FormLabel>
+                              <FormControl>
+                                {q.type === 'textarea' ? (
+                                  <Textarea
+                                    placeholder={q.placeholder}
+                                    {...field}
+                                    rows={3}
+                                    className="bg-input border-border"
+                                  />
+                                ) : (
+                                  <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
+                                )}
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        {index < step1Questions.length - 1 && <Separator className="mt-8" />}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -194,34 +191,36 @@ export function Questionnaire() {
 
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">🎯 O Desafio Atual</h2>
-                  <div className="grid grid-cols-1 gap-8">
-                    {step2Questions.map((q) => (
-                      <FormField
-                        key={q.id}
-                        control={form.control}
-                        name={q.id as any}
-                        render={({ field }) => (
-                          <FormItem>
-                             <FormLabel className="text-foreground/90 flex items-center justify-between">
-                              <span>{q.label}</span>
-                              {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
-                            </FormLabel>
-                            <FormControl>
-                              {q.type === 'textarea' ? (
-                                <Textarea
-                                  placeholder={q.placeholder}
-                                  {...field}
-                                  rows={3}
-                                  className="bg-input border-border"
-                                />
-                              ) : (
-                                <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
-                              )}
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                   <div className="flex flex-col space-y-8">
+                    {step2Questions.map((q, index) => (
+                       <div key={q.id}>
+                        <FormField
+                          control={form.control}
+                          name={q.id as any}
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-foreground/90 flex items-center justify-between">
+                                <span>{q.label}</span>
+                                {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                              </FormLabel>
+                              <FormControl>
+                                {q.type === 'textarea' ? (
+                                  <Textarea
+                                    placeholder={q.placeholder}
+                                    {...field}
+                                    rows={3}
+                                    className="bg-input border-border"
+                                  />
+                                ) : (
+                                  <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
+                                )}
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                         {index < step2Questions.length - 1 && <Separator className="mt-8" />}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -230,34 +229,36 @@ export function Questionnaire() {
 
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">👁️ A Visão de Futuro</h2>
-                  <div className="grid grid-cols-1 gap-8">
-                    {step3Questions.map((q) => (
-                      <FormField
-                        key={q.id}
-                        control={form.control}
-                        name={q.id as any}
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-foreground/90 flex items-center justify-between">
-                              <span>{q.label}</span>
-                              {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
-                            </FormLabel>
-                            <FormControl>
-                              {q.type === 'textarea' ? (
-                                <Textarea
-                                  placeholder={q.placeholder}
-                                  {...field}
-                                  rows={3}
-                                  className="bg-input border-border"
-                                />
-                              ) : (
-                                <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
-                              )}
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                   <div className="flex flex-col space-y-8">
+                    {step3Questions.map((q, index) => (
+                      <div key={q.id}>
+                        <FormField
+                          control={form.control}
+                          name={q.id as any}
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-foreground/90 flex items-center justify-between">
+                                <span>{q.label}</span>
+                                {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                              </FormLabel>
+                              <FormControl>
+                                {q.type === 'textarea' ? (
+                                  <Textarea
+                                    placeholder={q.placeholder}
+                                    {...field}
+                                    rows={3}
+                                    className="bg-input border-border"
+                                  />
+                                ) : (
+                                  <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
+                                )}
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        {index < step3Questions.length - 1 && <Separator className="mt-8" />}
+                        </div>
                     ))}
                   </div>
                 </div>
@@ -266,34 +267,36 @@ export function Questionnaire() {
 
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">💰 Próximos Passos e Investimento</h2>
-                  <div className="grid grid-cols-1 gap-8">
-                    {step4Questions.map((q) => (
-                      <FormField
-                        key={q.id}
-                        control={form.control}
-                        name={q.id as any}
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-foreground/90 flex items-center justify-between">
-                              <span>{q.label}</span>
-                              {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
-                            </FormLabel>
-                            <FormControl>
-                              {q.type === 'textarea' ? (
-                                <Textarea
-                                  placeholder={q.placeholder}
-                                  {...field}
-                                  rows={3}
-                                  className="bg-input border-border"
-                                />
-                              ) : (
-                                <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
-                              )}
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                   <div className="flex flex-col space-y-8">
+                    {step4Questions.map((q, index) => (
+                      <div key={q.id}>
+                        <FormField
+                          control={form.control}
+                          name={q.id as any}
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-foreground/90 flex items-center justify-between">
+                                <span>{q.label}</span>
+                                {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                              </FormLabel>
+                              <FormControl>
+                                {q.type === 'textarea' ? (
+                                  <Textarea
+                                    placeholder={q.placeholder}
+                                    {...field}
+                                    rows={3}
+                                    className="bg-input border-border"
+                                  />
+                                ) : (
+                                  <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
+                                )}
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        {index < step4Questions.length - 1 && <Separator className="mt-8" />}
+                        </div>
                     ))}
                   </div>
                 </div>
