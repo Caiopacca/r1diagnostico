@@ -120,8 +120,31 @@ export function Questionnaire() {
       <Card className="w-full bg-card border-border">
         <CardHeader>
           <div className="flex items-center space-x-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-              <Wand2 className="h-6 w-6 text-primary" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-background">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.2207 7.78845L14.8107 9.19845L16.9307 11.3185L11.3107 16.9385L9.1907 14.8185L7.7807 16.2285L12.0207 20.4685L12.7307 21.1785L13.4407 20.4685L20.4707 13.4385L16.2207 7.78845Z"
+                  fill="hsl(var(--primary))"
+                />
+                <path
+                  d="M12.0221 3.52844L7.7821 7.76844L9.1921 9.17844L11.3121 7.05844L16.9321 12.6784L14.8121 14.7984L16.2221 16.2084L21.1721 11.2584L12.0221 3.52844Z"
+                  fill="hsl(var(--primary))"
+                />
+                <path
+                  d="M7.06055 11.3184L2.82055 7.07844L3.53055 6.36844L6.36055 3.53844L7.77055 4.94844L5.65055 7.06844L10.5905 12.0084L12.0005 10.5984L7.06055 11.3184Z"
+                  fill="hsl(var(--primary))"
+                />
+                <path
+                  d="M11.3105 16.9385L7.07055 12.6985L6.36055 13.4085L3.53055 16.2385L4.94055 17.6485L7.06055 15.5285L12.0005 20.4685L10.5905 21.1785L11.3105 16.9385Z"
+                  fill="hsl(var(--primary))"
+                />
+              </svg>
             </div>
             <div>
               <CardTitle className="text-2xl font-bold text-foreground">
