@@ -128,7 +128,7 @@ export function Questionnaire() {
                 R1 DIAGNÓSTICO
               </CardTitle>
               <CardDescription className="text-base text-muted-foreground">
-                Preencha para obter insights e perguntas de acompanhamento.
+                CP Marketing Digital e Podcast
               </CardDescription>
             </div>
           </div>
