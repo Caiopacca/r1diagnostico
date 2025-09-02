@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Loader2, Copy, Mail, Check } from 'lucide-react';
+import { Loader2, Copy, Mail, Check, Send } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -36,6 +36,15 @@ const formSchema = z.object(
     return acc;
   }, {} as Record<string, z.ZodString>)
 );
+
+const sdrList = [
+    { name: 'Van Diego', email: 'comercial01@cpmarketing.com.br' },
+    { name: 'Heloysa', email: 'comercial02@cpmarketing.com.br' },
+    { name: 'Debora', email: 'comercial03@cpmarketing.com.br' },
+    { name: 'Raissa', email: 'comercial04@cpmarketing.com.br' },
+    { name: 'Brenda', email: 'comercial05@cpmarketing.com.br' },
+    { name: 'Comercial', email: 'comercial@cpmarketing.com.br' },
+]
 
 export function Questionnaire() {
   const [isCopied, setIsCopied] = useState(false);
@@ -91,17 +100,17 @@ export function Questionnaire() {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
-  const handleEmail = (data: z.infer<typeof formSchema>) => {
+  const handleEmail = (data: z.infer<typeof formSchema>, recipientEmail: string) => {
     const textForEmail = getFullText(data);
     const subject = encodeURIComponent(
       'Respostas do Questionário - R1 DIAGNÓSTICO'
     );
     const body = encodeURIComponent(textForEmail);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
   };
   
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    // For now, we just log. In the future, this could send to a server.
+    // This is now handled by the individual buttons
     console.log(data);
   }
 
@@ -154,7 +163,7 @@ export function Questionnaire() {
                 <div>
                   <h2 className="text-xl font-semibold text-primary mb-6">📊 Cenário e Metas</h2>
                   <div className="flex flex-col space-y-8">
-                    {step1Questions.map((q, index) => (
+                    {step1Questions.map((q) => (
                       <div key={q.id}>
                         <FormField
                           control={form.control}
@@ -183,7 +192,7 @@ export function Questionnaire() {
                             </FormItem>
                           )}
                         />
-                        {index < step1Questions.length - 1 && <Separator className="mt-8" />}
+                        <Separator className="mt-8" />
                       </div>
                     ))}
                   </div>
@@ -194,7 +203,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">🎯 O Desafio Atual</h2>
                    <div className="flex flex-col space-y-8">
-                    {step2Questions.map((q, index) => (
+                    {step2Questions.map((q) => (
                        <div key={q.id}>
                         <FormField
                           control={form.control}
@@ -223,7 +232,7 @@ export function Questionnaire() {
                             </FormItem>
                           )}
                         />
-                         {index < step2Questions.length - 1 && <Separator className="mt-8" />}
+                         <Separator className="mt-8" />
                       </div>
                     ))}
                   </div>
@@ -234,7 +243,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">👁️ A Visão de Futuro</h2>
                    <div className="flex flex-col space-y-8">
-                    {step3Questions.map((q, index) => (
+                    {step3Questions.map((q) => (
                       <div key={q.id}>
                         <FormField
                           control={form.control}
@@ -263,7 +272,7 @@ export function Questionnaire() {
                             </FormItem>
                           )}
                         />
-                        {index < step3Questions.length - 1 && <Separator className="mt-8" />}
+                        <Separator className="mt-8" />
                         </div>
                     ))}
                   </div>
@@ -274,7 +283,7 @@ export function Questionnaire() {
                 <div>
                    <h2 className="text-xl font-semibold text-primary mb-6">💰 Próximos Passos e Investimento</h2>
                    <div className="flex flex-col space-y-8">
-                    {step4Questions.map((q, index) => (
+                    {step4Questions.map((q) => (
                       <div key={q.id}>
                         <FormField
                           control={form.control}
@@ -303,39 +312,43 @@ export function Questionnaire() {
                             </FormItem>
                           )}
                         />
-                        {index < step4Questions.length - 1 && <Separator className="mt-8" />}
+                        <Separator className="mt-8" />
                         </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center justify-end gap-4 border-t border-border pt-6 sm:flex-row">
-                 <div className="flex gap-4">
-                      <Button
-                        type="button"
-                        onClick={form.handleSubmit(handleCopy)}
-                        className="w-full sm:w-auto"
-                        size="lg"
-                        variant="outline"
-                      >
-                        {isCopied ? (
-                          <Check className="mr-2 h-4 w-4" />
-                        ) : (
-                          <Copy className="mr-2 h-4 w-4" />
-                        )}
-                        {isCopied ? 'Copiado!' : 'Copiar'}
-                      </Button>
-                      <Button
-                        type="button"
-                        onClick={form.handleSubmit(handleEmail)}
-                        className="w-full sm:w-auto"
-                        size="lg"
-                      >
-                        <Mail className="mr-2 h-4 w-4" />
-                        Enviar
-                      </Button>
-                    </div>
+              <div className="flex flex-col gap-6 border-t border-border pt-6">
+                 <Button
+                    type="button"
+                    onClick={form.handleSubmit(handleCopy)}
+                    className="w-full"
+                    size="lg"
+                    variant="outline"
+                  >
+                    {isCopied ? (
+                      <Check className="mr-2 h-4 w-4" />
+                    ) : (
+                      <Copy className="mr-2 h-4 w-4" />
+                    )}
+                    {isCopied ? 'Copiado!' : 'Copiar Respostas'}
+                  </Button>
+                  
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                      {sdrList.map((sdr) => (
+                         <Button
+                            key={sdr.name}
+                            type="button"
+                            onClick={form.handleSubmit(data => handleEmail(data, sdr.email))}
+                            className="w-full"
+                            size="lg"
+                          >
+                            <Send className="mr-2 h-4 w-4" />
+                            {sdr.name}
+                          </Button>
+                      ))}
+                  </div>
               </div>
             </form>
           </Form>
@@ -344,3 +357,5 @@ export function Questionnaire() {
     </div>
   );
 }
+
+    
