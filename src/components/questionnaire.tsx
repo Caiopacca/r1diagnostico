@@ -152,6 +152,7 @@ export function Questionnaire() {
                                   {q.label}
                                   {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
+                                <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -192,6 +193,7 @@ export function Questionnaire() {
                                   {q.label}
                                   {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
+                                <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -232,6 +234,7 @@ export function Questionnaire() {
                                   {q.label}
                                   {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
+                                <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -272,6 +275,7 @@ export function Questionnaire() {
                                   {q.label}
                                   {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                                 </FormLabel>
+                                <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -334,5 +338,3 @@ export function Questionnaire() {
     </div>
   );
 }
-
-    
