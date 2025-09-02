@@ -125,7 +125,7 @@ export function Questionnaire() {
             </div>
             <div>
               <CardTitle className="text-2xl font-bold text-foreground">
-                Questionário de Onboarding
+                R1 DIAGNÓSTICO
               </CardTitle>
               <CardDescription className="text-base text-muted-foreground">
                 Preencha para obter insights e perguntas de acompanhamento.
