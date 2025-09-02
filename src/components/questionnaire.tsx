@@ -163,7 +163,7 @@ export function Questionnaire() {
                             <FormItem>
                               <FormLabel className="text-foreground/90 flex items-center justify-between">
                                 <span>{q.label}</span>
-                                {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                                {q.suggestion && <span className="text-xs text-primary font-semibold bg-primary/10 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                               </FormLabel>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -201,7 +201,7 @@ export function Questionnaire() {
                             <FormItem>
                               <FormLabel className="text-foreground/90 flex items-center justify-between">
                                 <span>{q.label}</span>
-                                {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                                {q.suggestion && <span className="text-xs text-primary font-semibold bg-primary/10 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                               </FormLabel>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -239,7 +239,7 @@ export function Questionnaire() {
                             <FormItem>
                               <FormLabel className="text-foreground/90 flex items-center justify-between">
                                 <span>{q.label}</span>
-                                {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                                {q.suggestion && <span className="text-xs text-primary font-semibold bg-primary/10 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                               </FormLabel>
                               <FormControl>
                                 {q.type === 'textarea' ? (
@@ -277,7 +277,7 @@ export function Questionnaire() {
                             <FormItem>
                               <FormLabel className="text-foreground/90 flex items-center justify-between">
                                 <span>{q.label}</span>
-                                {q.suggestion && <span className="text-xs text-primary/80 font-light bg-primary/10 px-2 py-1 rounded-md">{q.suggestion}</span>}
+                                {q.suggestion && <span className="text-xs text-primary font-semibold bg-primary/10 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
                               </FormLabel>
                               <FormControl>
                                 {q.type === 'textarea' ? (
