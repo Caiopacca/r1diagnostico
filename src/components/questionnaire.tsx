@@ -122,7 +122,7 @@ export function Questionnaire() {
               <Wand2 className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <CardTitle className="text-2xl font-bold text-primary-foreground">
+              <CardTitle className="text-2xl font-bold text-foreground">
                 Questionário de Onboarding
               </CardTitle>
               <CardDescription className="text-base text-muted-foreground">
