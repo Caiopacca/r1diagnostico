@@ -336,5 +336,3 @@ export function Questionnaire() {
     </div>
   );
 }
-
-    
