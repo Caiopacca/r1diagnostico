@@ -55,28 +55,28 @@ export function Questionnaire() {
 
     text += '--- 📊 CENÁRIO E METAS ---\n\n';
     step1Questions.forEach(q => {
-      text += `${questionNumber}. ${q.label}\n`;
+      text += `*${questionNumber}. ${q.label}*\n`;
       text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
       questionNumber++;
     });
 
     text += '--- 🎯 O DESAFIO ATUAL ---\n\n';
     step2Questions.forEach(q => {
-      text += `${questionNumber}. ${q.label}\n`;
+      text += `*${questionNumber}. ${q.label}*\n`;
       text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
       questionNumber++;
     });
 
     text += '--- 👁️ A VISÃO DE FUTURO ---\n\n';
     step3Questions.forEach(q => {
-      text += `${questionNumber}. ${q.label}\n`;
+      text += `*${questionNumber}. ${q.label}*\n`;
       text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
       questionNumber++;
     });
 
     text += '--- 💰 PRÓXIMOS PASSOS E INVESTIMENTO ---\n\n';
     step4Questions.forEach(q => {
-      text += `${questionNumber}. ${q.label}\n`;
+      text += `*${questionNumber}. ${q.label}*\n`;
       text += `R: ${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
       questionNumber++;
     });
@@ -135,6 +135,7 @@ export function Questionnaire() {
                 />
                 <path
                   d="M9.41406 15.0912L4.09406 9.77124L4.99406 8.87124L8.79406 5.07124L10.6741 6.95124L7.8474 9.7779L14.4341 16.3646L16.3141 14.4846L9.41406 15.0912Z"
+
                   fill="hsl(var(--primary))"
                 />
                 <path
