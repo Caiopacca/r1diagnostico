@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Loader2, Copy, Mail, Check, Send } from 'lucide-react';
+import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -120,31 +121,7 @@ export function Questionnaire() {
         <CardHeader>
           <div className="flex items-center space-x-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-transparent">
-               <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M21.6276 10.3846L19.7476 12.2646L22.5743 15.0913L15.0809 22.5846L12.2543 19.758L10.3743 21.638L16.0276 27.2913L16.9743 28.238L17.9209 27.2913L27.2943 17.918L21.6276 10.3846Z"
-                  fill="hsl(var(--primary))"
-                />
-                <path
-                  d="M16.0294 4.70459L10.3754 10.3586L12.2554 12.2386L15.0821 9.41192L22.5754 16.9053L19.7487 19.7319L21.6287 21.6119L28.2294 14.9986L16.0294 4.70459Z"
-                  fill="hsl(var(--primary))"
-                />
-                <path
-                  d="M9.41406 15.0912L4.09406 9.77124L4.99406 8.87124L8.79406 5.07124L10.6741 6.95124L7.8474 9.7779L14.4341 16.3646L16.3141 14.4846L9.41406 15.0912Z"
-
-                  fill="hsl(var(--primary))"
-                />
-                <path
-                  d="M15.0807 22.5846L9.42739 16.9313L8.48072 17.8779L4.99406 21.6513L6.87406 23.5313L9.70072 20.7046L16.0007 27.2913L14.4341 28.2379L15.0807 22.5846Z"
-                  fill="hsl(var(--primary))"
-                />
-              </svg>
+              <Image src="https://res.cloudinary.com/dp3gukavt/image/upload/v1755524633/Prancheta_6_ajhh0n.png" width={48} height={48} alt="Logo CP Marketing" />
             </div>
             <div>
               <CardTitle className="text-2xl font-bold text-foreground">
