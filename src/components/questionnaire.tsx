@@ -151,10 +151,10 @@ export function Questionnaire() {
                               placeholder={q.placeholder}
                               {...field}
                               rows={3}
-                              className="bg-secondary border-border"
+                              className="bg-input border-border"
                             />
                           ) : (
-                            <Input placeholder={q.placeholder} {...field} className="bg-secondary border-border" />
+                            <Input placeholder={q.placeholder} {...field} className="bg-input border-border" />
                           )}
                         </FormControl>
                         <FormMessage />
