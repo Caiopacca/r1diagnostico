@@ -1,4 +1,4 @@
-export const questionnaireData = [
+export const step1Questions = [
   {
     id: 'clientName',
     label: 'Nome do Cliente',
@@ -23,13 +23,7 @@ export const questionnaireData = [
     placeholder: 'Ex: Já contratamos uma agência, mas não deu certo.',
     type: 'textarea',
   },
-  {
-    id: 'growthBottleneck',
-    label: 'Qual o principal gargalo que impede seu crescimento?',
-    placeholder: 'Ex: Geração de leads qualificados do digital.',
-    type: 'textarea',
-  },
-  {
+    {
     id: 'priority',
     label: 'É uma prioridade resolver isso agora?',
     placeholder: 'Ex: Sim, é prioridade número um.',
@@ -40,6 +34,15 @@ export const questionnaireData = [
     label: 'Qual o orçamento que vocês previram para isso?',
     placeholder: 'Ex: Entre R$ 4.000 e R$ 6.000 por mês.',
     type: 'text',
+  },
+];
+
+export const step2Questions = [
+  {
+    id: 'growthBottleneck',
+    label: 'Qual o principal gargalo que impede seu crescimento?',
+    placeholder: 'Ex: Geração de leads qualificados do digital.',
+    type: 'textarea',
   },
   {
     id: 'marketTime',
@@ -124,3 +127,5 @@ export const questionnaireData = [
     type: 'text',
   },
 ];
+
+export const allQuestions = [...step1Questions, ...step2Questions];
