@@ -12,15 +12,39 @@ export const questionnaireData = [
     type: 'text',
   },
   {
-    id: 'marketTime',
-    label: 'Há quanto tempo vocês estão no mercado?',
-    placeholder: 'Ex: 5 anos',
-    type: 'text',
-  },
-  {
     id: 'monthlyRevenue',
     label: 'Qual é o faturamento médio mensal?',
     placeholder: 'Ex: R$ 50.000,00',
+    type: 'text',
+  },
+  {
+    id: 'pastMarketingExperience',
+    label: 'Qual foi sua experiência anterior com marketing?',
+    placeholder: 'Ex: Já contratamos uma agência, mas não deu certo.',
+    type: 'textarea',
+  },
+  {
+    id: 'growthBottleneck',
+    label: 'Qual o principal gargalo que impede seu crescimento?',
+    placeholder: 'Ex: Geração de leads qualificados do digital.',
+    type: 'textarea',
+  },
+  {
+    id: 'priority',
+    label: 'É uma prioridade resolver isso agora?',
+    placeholder: 'Ex: Sim, é prioridade número um.',
+    type: 'text',
+  },
+  {
+    id: 'budget',
+    label: 'Qual o orçamento que vocês previram para isso?',
+    placeholder: 'Ex: Entre R$ 4.000 e R$ 6.000 por mês.',
+    type: 'text',
+  },
+  {
+    id: 'marketTime',
+    label: 'Há quanto tempo vocês estão no mercado?',
+    placeholder: 'Ex: 5 anos',
     type: 'text',
   },
   {
@@ -56,21 +80,9 @@ export const questionnaireData = [
     type: 'textarea',
   },
   {
-    id: 'pastMarketingExperience',
-    label: 'Qual foi sua experiência anterior com marketing?',
-    placeholder: 'Ex: Já contratamos uma agência, mas não deu certo.',
-    type: 'textarea',
-  },
-  {
     id: 'whatDidntWork',
     label: 'O que você já tentou fazer que não funcionou?',
     placeholder: 'Ex: Posts bonitos não geraram clientes, suporte ruim...',
-    type: 'textarea',
-  },
-  {
-    id: 'growthBottleneck',
-    label: 'Qual o principal gargalo que impede seu crescimento?',
-    placeholder: 'Ex: Geração de leads qualificados do digital.',
     type: 'textarea',
   },
   {
@@ -106,21 +118,9 @@ export const questionnaireData = [
     type: 'textarea',
   },
   {
-    id: 'priority',
-    label: 'É uma prioridade resolver isso agora?',
-    placeholder: 'Ex: Sim, é prioridade número um.',
-    type: 'text',
-  },
-  {
     id: 'decisionMakers',
     label: 'Quem mais está envolvido na decisão?',
     placeholder: 'Ex: Eu e minha esposa, que é minha sócia.',
-    type: 'text',
-  },
-  {
-    id: 'budget',
-    label: 'Qual o orçamento que vocês previram para isso?',
-    placeholder: 'Ex: Entre R$ 4.000 e R$ 6.000 por mês.',
     type: 'text',
   },
 ];
