@@ -161,10 +161,12 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-foreground/90 flex items-center justify-between">
-                                <span>{q.label}</span>
+                              <div className="flex items-center justify-between">
+                                <FormLabel className="text-foreground/90">
+                                  {q.label}
+                                </FormLabel>
                                 {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
-                              </FormLabel>
+                              </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
                                   <Textarea
@@ -199,10 +201,12 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-foreground/90 flex items-center justify-between">
-                                <span>{q.label}</span>
+                               <div className="flex items-center justify-between">
+                                <FormLabel className="text-foreground/90">
+                                  {q.label}
+                                </FormLabel>
                                 {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
-                              </FormLabel>
+                              </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
                                   <Textarea
@@ -237,10 +241,12 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-foreground/90 flex items-center justify-between">
-                                <span>{q.label}</span>
+                               <div className="flex items-center justify-between">
+                                <FormLabel className="text-foreground/90">
+                                  {q.label}
+                                </FormLabel>
                                 {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
-                              </FormLabel>
+                              </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
                                   <Textarea
@@ -275,10 +281,12 @@ export function Questionnaire() {
                           name={q.id as any}
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-foreground/90 flex items-center justify-between">
-                                <span>{q.label}</span>
+                               <div className="flex items-center justify-between">
+                                <FormLabel className="text-foreground/90">
+                                  {q.label}
+                                </FormLabel>
                                 {q.suggestion && <span className="text-xs text-primary-foreground font-semibold bg-primary/80 px-3 py-1.5 rounded-md">{q.suggestion}</span>}
-                              </FormLabel>
+                              </div>
                               <FormControl>
                                 {q.type === 'textarea' ? (
                                   <Textarea
