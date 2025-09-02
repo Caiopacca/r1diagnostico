@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Loader2, Copy, Mail, Check, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Loader2, Copy, Mail, Check } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -26,62 +26,39 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { step1Questions, step2Questions, allQuestions } from '@/lib/questions';
+import { allQuestions } from '@/lib/questions';
 import { Progress } from '@/components/ui/progress';
 
-const step1Schema = z.object(
-  step1Questions.reduce((acc, q) => {
+const formSchema = z.object(
+  allQuestions.reduce((acc, q) => {
     acc[q.id] = z.string().min(1, { message: 'Este campo é obrigatório.' });
     return acc;
   }, {} as Record<string, z.ZodString>)
 );
-
-const step2Schema = z.object(
-  step2Questions.reduce((acc, q) => {
-    acc[q.id] = z.string().min(1, { message: 'Este campo é obrigatório.' });
-    return acc;
-  }, {} as Record<string, z.ZodString>)
-);
-
-const formSchema = step1Schema.merge(step2Schema);
 
 export function Questionnaire() {
-  const [currentStep, setCurrentStep] = useState(1);
   const [isCopied, setIsCopied] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(currentStep === 1 ? step1Schema : step2Schema),
+    resolver: zodResolver(formSchema),
     defaultValues: allQuestions.reduce((acc, q) => {
       acc[q.id] = '';
       return acc;
     }, {} as Record<string, string>),
   });
 
-  const handleNext = async () => {
-    const isValid = await form.trigger(step1Questions.map(q => q.id as any));
-    if (isValid) {
-      setCurrentStep(2);
-    }
-  };
-
-  const handlePrevious = () => {
-    setCurrentStep(1);
-  };
-  
-  const getFullText = () => {
-    const values = form.getValues();
+  const getFullText = (data: z.infer<typeof formSchema>) => {
     let text = 'Respostas do Questionário:\n\n';
     allQuestions.forEach(q => {
       text += `${q.label}\n`;
-      text += `${values[q.id as keyof typeof values] || 'Não preenchido'}\n\n`;
+      text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
     });
-
     return text;
   };
 
-  const handleCopy = () => {
-    const textToCopy = getFullText();
+  const handleCopy = (data: z.infer<typeof formSchema>) => {
+    const textToCopy = getFullText(data);
     navigator.clipboard.writeText(textToCopy);
     setIsCopied(true);
     toast({
@@ -92,16 +69,19 @@ export function Questionnaire() {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
-  const handleEmail = () => {
-    const textForEmail = getFullText();
+  const handleEmail = (data: z.infer<typeof formSchema>) => {
+    const textForEmail = getFullText(data);
     const subject = encodeURIComponent(
       'Respostas do Questionário - Client Insights Pro'
     );
     const body = encodeURIComponent(textForEmail);
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   };
-
-  const questions = currentStep === 1 ? step1Questions : step2Questions;
+  
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
+    // For now, we just log. In the future, this could send to a server.
+    console.log(data);
+  }
 
   return (
     <div className="w-full max-w-4xl space-y-8">
@@ -143,16 +123,12 @@ export function Questionnaire() {
               </CardDescription>
             </div>
           </div>
-           <div className="pt-4">
-            <Progress value={(currentStep / 2) * 100} className="w-full" />
-            <p className="text-sm text-muted-foreground mt-2">Etapa {currentStep} de 2</p>
-          </div>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form className="space-y-12">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12">
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {questions.map(q => (
+                {allQuestions.map(q => (
                   <FormField
                     key={q.id}
                     control={form.control}
@@ -180,37 +156,14 @@ export function Questionnaire() {
                   />
                 ))}
               </div>
-              <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
-                 {currentStep === 1 && (
-                  <Button
-                    type="button"
-                    onClick={handleNext}
-                    className="w-full sm:w-auto"
-                    size="lg"
-                  >
-                    Próximo
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                )}
-
-                {currentStep === 2 && (
-                  <>
-                    <Button
-                      type="button"
-                      onClick={handlePrevious}
-                      className="w-full sm:w-auto"
-                      size="lg"
-                       variant="outline"
-                    >
-                      <ArrowLeft className="mr-2 h-4 w-4" />
-                      Anterior
-                    </Button>
-                    <div className="flex gap-4">
+              <div className="flex flex-col items-center justify-end gap-4 border-t border-border pt-6 sm:flex-row">
+                 <div className="flex gap-4">
                       <Button
                         type="button"
-                        onClick={handleCopy}
+                        onClick={form.handleSubmit(handleCopy)}
                         className="w-full sm:w-auto"
                         size="lg"
+                        variant="outline"
                       >
                         {isCopied ? (
                           <Check className="mr-2 h-4 w-4" />
@@ -221,7 +174,7 @@ export function Questionnaire() {
                       </Button>
                       <Button
                         type="button"
-                        onClick={handleEmail}
+                        onClick={form.handleSubmit(handleEmail)}
                         className="w-full sm:w-auto"
                         size="lg"
                       >
@@ -229,8 +182,6 @@ export function Questionnaire() {
                         Enviar
                       </Button>
                     </div>
-                  </>
-                )}
               </div>
             </form>
           </Form>
