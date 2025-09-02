@@ -134,7 +134,7 @@ export function Questionnaire() {
                               <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
-                                  {q.suggestion && <Badge variant="secondary">{q.suggestion}</Badge>}
+                                  {q.suggestion && <Badge variant="default">{q.suggestion}</Badge>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -175,7 +175,7 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
-                                   {q.suggestion && <Badge variant="secondary">{q.suggestion}</Badge>}
+                                   {q.suggestion && <Badge variant="default">{q.suggestion}</Badge>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -216,7 +216,7 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
-                                   {q.suggestion && <Badge variant="secondary">{q.suggestion}</Badge>}
+                                   {q.suggestion && <Badge variant="default">{q.suggestion}</Badge>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -257,7 +257,7 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
-                                   {q.suggestion && <Badge variant="secondary">{q.suggestion}</Badge>}
+                                   {q.suggestion && <Badge variant="default">{q.suggestion}</Badge>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
