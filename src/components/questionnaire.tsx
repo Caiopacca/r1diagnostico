@@ -30,6 +30,7 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { allQuestions, step1Questions, step2Questions, step3Questions, step4Questions } from '@/lib/questions';
 import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 
 const formSchema = z.object(
   allQuestions.reduce((acc, q) => {
@@ -133,6 +134,7 @@ export function Questionnaire() {
                               <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
+                                  {q.suggestion && <Badge variant="secondary">{q.suggestion}</Badge>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -173,6 +175,7 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
+                                   {q.suggestion && <Badge variant="secondary">{q.suggestion}</Badge>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -213,6 +216,7 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
+                                   {q.suggestion && <Badge variant="secondary">{q.suggestion}</Badge>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -253,6 +257,7 @@ export function Questionnaire() {
                                <div className="mb-2">
                                 <FormLabel className="text-foreground/90 flex items-center gap-2">
                                   {q.label}
+                                   {q.suggestion && <Badge variant="secondary">{q.suggestion}</Badge>}
                                 </FormLabel>
                                 <p className="text-sm text-muted-foreground mt-1.5">{q.conversational}</p>
                               </div>
@@ -301,5 +306,3 @@ export function Questionnaire() {
     </div>
   );
 }
-
-    
