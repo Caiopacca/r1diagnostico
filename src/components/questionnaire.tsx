@@ -115,19 +115,18 @@ export function Questionnaire() {
 
   return (
     <div className="w-full max-w-4xl space-y-8">
-      <Card className="w-full shadow-lg">
+      <Card className="w-full bg-card border-border">
         <CardHeader>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
               <Wand2 className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <CardTitle className="text-3xl font-bold text-primary">
-                Client Insights Pro
+              <CardTitle className="text-2xl font-bold text-primary-foreground">
+                Questionário de Onboarding
               </CardTitle>
-              <CardDescription className="text-lg text-foreground/80">
-                Preencha o questionário para obter insights e perguntas de
-                acompanhamento personalizadas.
+              <CardDescription className="text-base text-muted-foreground">
+                Preencha para obter insights e perguntas de acompanhamento.
               </CardDescription>
             </div>
           </div>
@@ -145,16 +144,17 @@ export function Questionnaire() {
                       <FormItem
                         className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                       >
-                        <FormLabel>{q.label}</FormLabel>
+                        <FormLabel className="text-foreground/90">{q.label}</FormLabel>
                         <FormControl>
                           {q.type === 'textarea' ? (
                             <Textarea
                               placeholder={q.placeholder}
                               {...field}
                               rows={3}
+                              className="bg-secondary border-border"
                             />
                           ) : (
-                            <Input placeholder={q.placeholder} {...field} />
+                            <Input placeholder={q.placeholder} {...field} className="bg-secondary border-border" />
                           )}
                         </FormControl>
                         <FormMessage />
@@ -213,7 +213,7 @@ export function Questionnaire() {
       </Card>
 
       {isLoading && (
-        <Card className="w-full">
+        <Card className="w-full bg-card border-border">
           <CardHeader>
             <CardTitle>Aguarde um momento...</CardTitle>
             <CardDescription>
@@ -230,7 +230,7 @@ export function Questionnaire() {
       )}
 
       {followUpQuestions.length > 0 && !isLoading && (
-        <Card className="w-full animate-in fade-in duration-500">
+        <Card className="w-full animate-in fade-in duration-500 bg-card border-border">
           <CardHeader>
             <CardTitle>Perguntas de Acompanhamento Sugeridas</CardTitle>
             <CardDescription>
