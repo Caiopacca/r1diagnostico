@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -50,26 +51,36 @@ export function Questionnaire() {
 
   const getFullText = (data: z.infer<typeof formSchema>) => {
     let text = 'Respostas do Questionário:\n\n';
-    text += '--- 1ª Etapa ---\n\n';
+    let questionNumber = 1;
+
+    text += '--- 📊 Cenário e Metas ---\n\n';
     step1Questions.forEach(q => {
-      text += `${q.label}\n`;
+      text += `${questionNumber}. ${q.label}\n`;
       text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+      questionNumber++;
     });
-    text += '--- 2ª Etapa ---\n\n';
+
+    text += '--- 🎯 O Desafio Atual ---\n\n';
     step2Questions.forEach(q => {
-      text += `${q.label}\n`;
+      text += `${questionNumber}. ${q.label}\n`;
       text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+      questionNumber++;
     });
-     text += '--- 3ª Etapa ---\n\n';
+
+    text += '--- 👁️ A Visão de Futuro ---\n\n';
     step3Questions.forEach(q => {
-      text += `${q.label}\n`;
+      text += `${questionNumber}. ${q.label}\n`;
       text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+      questionNumber++;
     });
-     text += '--- 4ª Etapa ---\n\n';
+
+    text += '--- 💰 Próximos Passos e Investimento ---\n\n';
     step4Questions.forEach(q => {
-      text += `${q.label}\n`;
+      text += `${questionNumber}. ${q.label}\n`;
       text += `${data[q.id as keyof typeof data] || 'Não preenchido'}\n\n`;
+      questionNumber++;
     });
+
     return text;
   };
 
@@ -98,6 +109,8 @@ export function Questionnaire() {
     // For now, we just log. In the future, this could send to a server.
     console.log(data);
   }
+
+  let questionCounter = 0;
 
   return (
     <div className="w-full max-w-4xl space-y-8">
@@ -145,9 +158,11 @@ export function Questionnaire() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12">
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-xl font-semibold text-primary mb-6">1ª Etapa - Identificação do Cliente</h2>
+                  <h2 className="text-xl font-semibold text-primary mb-6">📊 Cenário e Metas</h2>
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    {step1Questions.map(q => (
+                    {step1Questions.map((q, index) => {
+                      questionCounter++;
+                      return (
                       <FormField
                         key={q.id}
                         control={form.control}
@@ -156,7 +171,7 @@ export function Questionnaire() {
                           <FormItem
                             className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                           >
-                            <FormLabel className="text-foreground/90">{q.label}</FormLabel>
+                            <FormLabel className="text-foreground/90">{`${questionCounter}. ${q.label}`}</FormLabel>
                             <FormControl>
                               {q.type === 'textarea' ? (
                                 <Textarea
@@ -173,16 +188,18 @@ export function Questionnaire() {
                           </FormItem>
                         )}
                       />
-                    ))}
+                    )})}
                   </div>
                 </div>
 
                 <Separator className="my-12" />
 
                 <div>
-                   <h2 className="text-xl font-semibold text-primary mb-6">2ª Etapa - Cenário Atual</h2>
+                   <h2 className="text-xl font-semibold text-primary mb-6">🎯 O Desafio Atual</h2>
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    {step2Questions.map(q => (
+                    {step2Questions.map((q, index) => {
+                       questionCounter++;
+                      return (
                       <FormField
                         key={q.id}
                         control={form.control}
@@ -191,7 +208,7 @@ export function Questionnaire() {
                           <FormItem
                             className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                           >
-                            <FormLabel className="text-foreground/90">{q.label}</FormLabel>
+                            <FormLabel className="text-foreground/90">{`${questionCounter}. ${q.label}`}</FormLabel>
                             <FormControl>
                               {q.type === 'textarea' ? (
                                 <Textarea
@@ -208,16 +225,18 @@ export function Questionnaire() {
                           </FormItem>
                         )}
                       />
-                    ))}
+                    )})}
                   </div>
                 </div>
 
                  <Separator className="my-12" />
 
                 <div>
-                   <h2 className="text-xl font-semibold text-primary mb-6">3ª Etapa - O Desafio</h2>
+                   <h2 className="text-xl font-semibold text-primary mb-6">👁️ A Visão de Futuro</h2>
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    {step3Questions.map(q => (
+                    {step3Questions.map((q, index) => {
+                       questionCounter++;
+                      return (
                       <FormField
                         key={q.id}
                         control={form.control}
@@ -226,7 +245,7 @@ export function Questionnaire() {
                           <FormItem
                             className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                           >
-                            <FormLabel className="text-foreground/90">{q.label}</FormLabel>
+                            <FormLabel className="text-foreground/90">{`${questionCounter}. ${q.label}`}</FormLabel>
                             <FormControl>
                               {q.type === 'textarea' ? (
                                 <Textarea
@@ -243,16 +262,18 @@ export function Questionnaire() {
                           </FormItem>
                         )}
                       />
-                    ))}
+                    )})}
                   </div>
                 </div>
 
                  <Separator className="my-12" />
 
                 <div>
-                   <h2 className="text-xl font-semibold text-primary mb-6">4ª Etapa - Visão de Futuro e Decisão</h2>
+                   <h2 className="text-xl font-semibold text-primary mb-6">💰 Próximos Passos e Investimento</h2>
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    {step4Questions.map(q => (
+                    {step4Questions.map((q, index) => {
+                       questionCounter++;
+                      return (
                       <FormField
                         key={q.id}
                         control={form.control}
@@ -261,7 +282,7 @@ export function Questionnaire() {
                           <FormItem
                             className={q.type === 'textarea' ? 'md:col-span-2' : ''}
                           >
-                            <FormLabel className="text-foreground/90">{q.label}</FormLabel>
+                            <FormLabel className="text-foreground/90">{`${questionCounter}. ${q.label}`}</FormLabel>
                             <FormControl>
                               {q.type === 'textarea' ? (
                                 <Textarea
@@ -278,7 +299,7 @@ export function Questionnaire() {
                           </FormItem>
                         )}
                       />
-                    ))}
+                    )})}
                   </div>
                 </div>
               </div>
@@ -317,5 +338,3 @@ export function Questionnaire() {
     </div>
   );
 }
-
-    

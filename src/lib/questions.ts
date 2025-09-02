@@ -1,3 +1,4 @@
+
 export const step1Questions = [
   {
     id: 'clientName',
@@ -17,13 +18,16 @@ export const step1Questions = [
     placeholder: '5 anos',
     type: 'text',
   },
-];
-
-export const step2Questions = [
   {
     id: 'monthlyRevenue',
     label: 'Qual é o faturamento médio mensal?',
     placeholder: 'R$ 50.000,00',
+    type: 'text',
+  },
+   {
+    id: 'revenueGoal',
+    label: 'Qual é a meta de faturamento?',
+    placeholder: 'R$ 120.000,00',
     type: 'text',
   },
   {
@@ -38,20 +42,26 @@ export const step2Questions = [
     placeholder: '90% vêm de indicação e um pouco do Instagram',
     type: 'textarea',
   },
-    {
-    id: 'pastMarketingExperience',
-    label: 'Qual foi sua experiência anterior com marketing?',
-    placeholder: 'Já contratamos uma agência no passado, mas não deu certo.',
+  {
+    id: 'differentiators',
+    label: 'Quais são os principais diferenciais do cliente?',
+    placeholder: 'Atendimento humanizado e focado na experiência do paciente, além do uso de tecnologia importada para o tratamento X, exclusiva na região.',
     type: 'textarea',
   },
 ];
 
-export const step3Questions = [
+export const step2Questions = [
    {
     id: 'marketingMotivation',
     label: 'O que te motivou a buscar ajuda com marketing?',
     placeholder:
       'Chegamos num platô, o crescimento estagnou e vemos concorrentes crescendo muito no digital. Queremos profissionalizar nossa presença online.',
+    type: 'textarea',
+  },
+  {
+    id: 'pastMarketingExperience',
+    label: 'Qual foi sua experiência anterior com marketing?',
+    placeholder: 'Já contratamos uma agência no passado, mas não deu certo.',
     type: 'textarea',
   },
   {
@@ -78,27 +88,21 @@ export const step3Questions = [
     placeholder: 'O faturamento vai cair e perderemos relevância para clínicas mais novas e agressivas.',
     type: 'textarea',
   },
+  {
+    id: 'personalFeeling',
+    label: 'Qual o seu sentimento pessoal em relação a esse desafio?',
+    placeholder: 'É frustrante. Sei do nosso potencial e da qualidade do nosso trabalho, mas sinto que estamos ficando invisíveis no mercado.',
+    type: 'textarea',
+  },
 ];
 
-export const step4Questions = [
-    {
-    id: 'revenueGoal',
-    label: 'Qual é a meta de faturamento?',
-    placeholder: 'R$ 120.000,00',
-    type: 'text',
-  },
+export const step3Questions = [
   {
     id: 'futureVision',
     label:
       'Como você imagina seu negócio daqui a 6 meses com esse problema resolvido?',
     placeholder:
       'Agenda cheia de forma previsível, clínica reconhecida como referência na especialidade e segurança para investir no crescimento.',
-    type: 'textarea',
-  },
-  {
-    id: 'personalFeeling',
-    label: 'Qual o seu sentimento pessoal em relação a esse desafio?',
-    placeholder: 'É frustrante. Sei do nosso potencial e da qualidade do nosso trabalho, mas sinto que estamos ficando invisíveis no mercado.',
     type: 'textarea',
   },
   {
@@ -113,6 +117,9 @@ export const step4Questions = [
     placeholder: 'Sim, é prioridade número um. Não podemos mais adiar.',
     type: 'text',
   },
+];
+
+export const step4Questions = [
   {
     id: 'decisionMakers',
     label: 'Quem mais está envolvido na decisão?',
@@ -129,5 +136,3 @@ export const step4Questions = [
 
 
 export const allQuestions = [...step1Questions, ...step2Questions, ...step3Questions, ...step4Questions];
-
-    
