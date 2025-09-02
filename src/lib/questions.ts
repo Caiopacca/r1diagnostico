@@ -17,6 +17,9 @@ export const step1Questions = [
     placeholder: '5 anos',
     type: 'text',
   },
+];
+
+export const step2Questions = [
   {
     id: 'monthlyRevenue',
     label: 'Qual é o faturamento médio mensal?',
@@ -35,14 +38,7 @@ export const step1Questions = [
     placeholder: '90% vêm de indicação e um pouco do Instagram',
     type: 'textarea',
   },
-  {
-    id: 'differentiators',
-    label: 'Quais são os principais diferenciais do cliente?',
-    placeholder:
-      'Atendimento humanizado e focado na experiência do paciente, além do uso de tecnologia importada para o tratamento X, exclusiva na região.',
-    type: 'textarea',
-  },
-  {
+    {
     id: 'pastMarketingExperience',
     label: 'Qual foi sua experiência anterior com marketing?',
     placeholder: 'Já contratamos uma agência no passado, mas não deu certo.',
@@ -50,7 +46,7 @@ export const step1Questions = [
   },
 ];
 
-export const step2Questions = [
+export const step3Questions = [
    {
     id: 'marketingMotivation',
     label: 'O que te motivou a buscar ajuda com marketing?',
@@ -82,6 +78,9 @@ export const step2Questions = [
     placeholder: 'O faturamento vai cair e perderemos relevância para clínicas mais novas e agressivas.',
     type: 'textarea',
   },
+];
+
+export const step4Questions = [
     {
     id: 'revenueGoal',
     label: 'Qual é a meta de faturamento?',
@@ -128,4 +127,7 @@ export const step2Questions = [
   },
 ];
 
-export const allQuestions = [...step1Questions, ...step2Questions];
+
+export const allQuestions = [...step1Questions, ...step2Questions, ...step3Questions, ...step4Questions];
+
+    
