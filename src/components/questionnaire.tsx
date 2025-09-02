@@ -38,15 +38,6 @@ const formSchema = z.object(
   }, {} as Record<string, z.ZodString>)
 );
 
-const sdrList = [
-    { name: 'Van Diego', email: 'comercial01@cpmarketing.com.br' },
-    { name: 'Heloysa', email: 'comercial02@cpmarketing.com.br' },
-    { name: 'Debora', email: 'comercial03@cpmarketing.com.br' },
-    { name: 'Raissa', email: 'comercial04@cpmarketing.com.br' },
-    { name: 'Brenda', email: 'comercial05@cpmarketing.com.br' },
-    { name: 'Comercial', email: 'comercial@cpmarketing.com.br' },
-]
-
 export function Questionnaire() {
   const [isCopied, setIsCopied] = useState(false);
   const { toast } = useToast();
@@ -101,14 +92,6 @@ export function Questionnaire() {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
-  const handleEmail = (data: z.infer<typeof formSchema>, recipientEmail: string) => {
-    const textForEmail = getFullText(data);
-    const subject = encodeURIComponent(
-      'Respostas do Questionário - R1 DIAGNÓSTICO'
-    );
-    const body = encodeURIComponent(textForEmail);
-    window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-  };
   
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     // This is now handled by the individual buttons
@@ -306,7 +289,6 @@ export function Questionnaire() {
                     onClick={form.handleSubmit(handleCopy)}
                     className="w-full"
                     size="lg"
-                    variant="outline"
                   >
                     {isCopied ? (
                       <Check className="mr-2 h-4 w-4" />
@@ -315,21 +297,6 @@ export function Questionnaire() {
                     )}
                     {isCopied ? 'Copiado!' : 'Copiar Respostas'}
                   </Button>
-                  
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                      {sdrList.map((sdr) => (
-                         <Button
-                            key={sdr.name}
-                            type="button"
-                            onClick={form.handleSubmit(data => handleEmail(data, sdr.email))}
-                            className="w-full"
-                            size="lg"
-                          >
-                            <Send className="mr-2 h-4 w-4" />
-                            {sdr.name}
-                          </Button>
-                      ))}
-                  </div>
               </div>
             </form>
           </Form>
